@@ -1,0 +1,286 @@
+@charset "UTF-8";
+
+/**************************************************
+	テキストボックス
+**************************************************/
+
+.form_text {
+	padding:0em $size_padding_default;
+	line-height:$size_height_default;
+	background:$color_back_default;
+	border:solid $size_border_default $color_border_default;
+	@include place_holder($color_back_pholder);
+	&:focus {
+		border-color:$color_active_default;
+	}
+	&:disabled {
+		opacity:$opacity_disable_default;
+	}
+	&::-ms-clear {// IE対応(×削除)
+		visibility:hidden;
+	}
+	&.form_error {
+		background:$color_back_error !important;
+		border-color:$color_border_error !important;
+	}
+}
+
+/**************************************************
+	テキストエリア
+**************************************************/
+
+.form_textarea {
+	overflow:auto;// IE対応(スクロールバー非表示)
+	padding:0.25em $size_padding_default;
+	height:5em;
+	background:$color_back_default;
+	border:solid $size_border_default $color_border_default;
+	resize:none;// Chorome対応(サイズ変更無効化)
+	@include place_holder($color_back_pholder);
+	&:focus {
+		border-color:$color_active_default;
+	}
+	&:disabled {
+		opacity:$opacity_disable_default;
+	}
+	&.form_error {
+		background:$color_back_error !important;
+		border-color:$color_border_error !important;
+	}
+}
+
+/**************************************************
+	チェックボックス
+**************************************************/
+
+.form_checkbox {
+	@include user_select_none;
+	display:inline-block;
+	font-size:0px;
+	& > input {
+		position:absolute;
+		opacity:0;
+	}
+	& > input + span {
+		display:inline-block;
+		position:relative;
+		width:1.5em;
+		height:1.5em;
+		vertical-align:middle;
+		cursor:pointer;
+		@at-root .form_checkbox > input:disabled + span {
+			opacity:$opacity_disable_default;
+			cursor:auto;
+		}
+		&:before {
+			content:"";
+			position:absolute;
+			z-index:1;
+			top:0px;
+			left:0px;
+			width:100%;
+			height:100%;
+			background:$color_back_default;
+			border:solid $size_border_default $color_border_default;
+			@at-root .form_checkbox > input:focus + span:before {
+				border-color:$color_active_default;
+				box-shadow:0px 0px 0px $size_border_default $color_back_default inset;
+			}
+			@at-root .form_checkbox.form_error > input + span:before {
+				background:$color_back_error !important;
+				border-color:$color_border_error !important;
+			}
+		}
+		&:after {
+			content:"";
+			position:absolute;
+			z-index:2;
+			top:15%;
+			left:37%;
+			width:30%;
+			height:60%;
+			transform:rotate(45deg);
+			@at-root .form_checkbox > input:checked + span:after {
+				border-right:solid 0.15em $color_active_default;
+				border-bottom:solid 0.15em $color_active_default;
+			}
+		}
+	}
+	& > input + span + span {
+		display:inline-block;
+		padding:0em $size_padding_default;
+		vertical-align:middle;
+		cursor:pointer;
+		@at-root .form_checkbox > input:disabled + span + span {
+			opacity:$opacity_disable_default;
+			cursor:auto;
+		}
+	}
+}
+
+/**************************************************
+	ラジオボタン
+**************************************************/
+
+.form_radio {
+	@include user_select_none;
+	display:inline-block;
+	font-size:0px;
+	& > input {
+		position:absolute;
+		opacity:0;
+	}
+	& > input + span {
+		display:inline-block;
+		position:relative;
+		width:1.5em;
+		height:1.5em;
+		vertical-align:middle;
+		cursor:pointer;
+		@at-root .form_radio > input:disabled + span {
+			opacity:$opacity_disable_default;
+			cursor:auto;
+		}
+		&:before {
+			content:"";
+			position:absolute;
+			z-index:1;
+			top:0px;
+			left:0px;
+			width:100%;
+			height:100%;
+			background:$color_back_default;
+			border:solid $size_border_default $color_border_default;
+			border-radius:50%;
+			@at-root .form_radio > input:focus + span:before {
+				border-color:$color_active_default;
+			}
+			@at-root .form_radio.form_error > input + span:before {
+				background:$color_back_error !important;
+				border-color:$color_border_error !important;
+			}
+		}
+		&:after {
+			content:"";
+			position:absolute;
+			z-index:2;
+			top:30%;
+			left:30%;
+			width:40%;
+			height:40%;
+			border-radius:50%;
+			@at-root .form_radio > input:checked + span:after {
+				background:$color_active_default;
+			}
+		}
+	}
+	& > input + span + span {
+		display:inline-block;
+		padding:0em $size_padding_default;
+		vertical-align:middle;
+		cursor:pointer;
+		@at-root .form_radio > input:disabled + span + span {
+			opacity:$opacity_disable_default;
+			cursor:auto;
+		}
+	}
+}
+
+/**************************************************
+	セレクトボックス
+**************************************************/
+
+.form_select {
+	@include user_select_none;
+	display:inline-block;
+	position:relative;
+	& > select {
+		appearance:none;
+		-moz-appearance:none;
+		-webkit-appearance:none;
+		padding:0em $size_padding_default * 4 0em $size_padding_default;
+		line-height:$size_height_default;
+		background:transparent;
+		border:none;
+		cursor:pointer;
+		&:disabled {
+			opacity:$opacity_disable_default;
+			cursor:auto;
+		}
+		&::-ms-expand {// IE対応(▼削除)
+			display:none;
+		}
+		&::-ms-value {// IE対応(項目選択時のスタイル指定)
+			background:transparent;
+			color:$color_font_default;
+		}
+	}
+	& > select + span {
+		&:before {
+			content:"";
+			position:absolute;
+			z-index:-2;
+			top:0px;
+			bottom:0px;
+			left:0px;
+			right:0px;
+			background:$color_back_default;
+			border:solid $size_border_default $color_border_default;
+			@at-root .form_select > select:focus + span:before {
+				border-color:$color_active_default;
+			}
+			@at-root .form_select > select:disabled + span:before {
+				opacity:$opacity_disable_default;
+			}
+			@at-root .form_select.form_error > select + span:before {
+				background:$color_back_error !important;
+				border-color:$color_border_error !important;
+			}
+		}
+		&:after {
+			content:"";
+			position:absolute;
+			z-index:-1;
+			top:38%;
+			right:0.6em;
+			width:0.5em;
+			height:0.5em;
+			border-right:solid 0.15em $color_border_default;
+			border-bottom:solid 0.15em $color_border_default;
+			transform:rotate(45deg);
+			@at-root .form_select > select:disabled + span:after {
+				opacity:$opacity_disable_default;
+			}
+		}
+	}
+}
+
+/**************************************************
+	ボタン
+**************************************************/
+
+.form_button {
+	@include user_select_none;
+	padding:0em $size_padding_default * 3;
+	line-height:$size_height_default;
+	color:$color_active_default;
+	background:$color_back_default;
+	border:solid $size_border_default $color_border_default;
+	cursor:pointer;
+	&:hover {
+		opacity:$opacity_hover_default;
+	}
+	&:focus {
+		border-color:$color_active_default;
+		box-shadow:0px 0px 0px $size_border_default $color_back_default inset;
+	}
+	&:disabled {
+		opacity:$opacity_disable_default;
+		cursor:auto;
+	}
+	&.form_primary {
+		color:$color_back_default;
+		background:$color_active_default;
+		border-color:$color_active_default;
+	}
+}

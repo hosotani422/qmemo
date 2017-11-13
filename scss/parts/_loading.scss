@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+/**************************************************
+	ローディング
+**************************************************/
+
+.loading_root {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	position:fixed;
+	z-index:70;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	background:$color_back_mask;
+	&.hide {
+		display:none;
+	}
+	& > .loading_home {
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		width:20em;
+		height:5em;
+		background:$color_back_mask;
+		border:solid 1px #ffffff;
+		& > .loading_icon {
+			@include animation(loading, linear, 0s, infinite, normal, forwards) {
+				from {transform:rotate(0deg);}
+				to {transform:rotate(360deg);}
+			}
+			animation-duration:1s;
+			color:#ffffff;
+		}
+		& > .loading_label {
+			margin-left:0.5em;
+			color:#ffffff;
+		}
+	}
+}

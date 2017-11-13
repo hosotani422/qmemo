@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+/**************************************************
+	ダイアログ
+**************************************************/
+
+.dialog_root {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	position:fixed;
+	z-index:70;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	background:$color_back_mask;
+	& > .dialog_home {
+		width:20em;
+		max-width:90%;
+		border:solid $size_border_default $color_border_default;
+		& > .dialog_head {
+			padding:0.75em 1em 0.75em 1em;
+			border-bottom:solid $size_border_default $color_border_default;
+		}
+		& > .dialog_body {
+			padding:1em;
+			font-size:80%;
+		}
+		& > .dialog_foot {
+			display:flex;
+			& > .dialog_ok {
+				flex:1;
+				font-size:80%;
+			}
+			& > .dialog_cancel {
+				flex:1;
+				font-size:80%;
+			}
+		}
+	}
+}

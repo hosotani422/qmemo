@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/**************************************************
+	ルーティング
+**************************************************/
+
+#route_hide {
+	display:none;
+}
+#route_fade_in {
+	@include animation(routefadein, ease, 0s, 1, normal, forwards) {
+		from {opacity:0;}
+		to {opacity:1;}
+	}
+}
+#route_fade_out {
+	@include animation(routefadeout, ease, 0s, 1, normal, forwards) {
+		from {opacity:1;}
+		to {opacity:0;}
+	}
+}
+#route_slide_in_left {
+	@include animation(routeslideinleft, ease, 0s, 1, normal, forwards) {
+		from {left:100%;}
+		to {left:0px;}
+	}
+}
+#route_slide_in_right {
+	@include animation(routeslideinright, ease, 0s, 1, normal, forwards) {
+		from {left:-100%;}
+		to {left:0px;}
+	}
+}
+#route_slide_out_left {
+	@include animation(routeslideoutleft, ease, 0s, 1, normal, forwards) {
+		from {left:0px;}
+		to {left:-100%;}
+	}
+}
+#route_slide_out_right {
+	@include animation(routeslideoutright, ease, 0s, 1, normal, forwards) {
+		from {left:0px;}
+		to {left:100%;}
+	}
+}

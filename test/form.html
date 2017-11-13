@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta http-equiv="Content-Language" content="ja" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<title>Form</title>
+		<link rel="stylesheet" type="text/css" href="../www/css/lib/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="../www/css/index.css" />
+	</head>
+	<body style="padding:10px;">
+		<div style="padding:10px;">
+			・クロスブラウザ、クロスプラットフォーム<br>
+			・文字サイズ変更時<br>
+			・マウスオーバー時<br>
+			・フォーカス時<br>
+			・エラー時<br>
+			・非活性時<br>
+		</div>
+		<div style="padding:10px;">
+			<input type="text" class="form_text" value="message" placeholder="placeholder">
+			<input type="text" class="form_text" value="" placeholder="placeholder">
+			<input type="text" class="form_text form_error" value="message" placeholder="placeholder">
+			<input type="text" class="form_text" value="message" placeholder="placeholder" disabled>
+			<input type="text" class="form_text" value="" placeholder="placeholder" disabled>
+		</div>
+		<div style="padding:10px;">
+			<textarea class="form_textarea" placeholder="placeholder">message</textarea>
+			<textarea class="form_textarea" placeholder="placeholder"></textarea>
+			<textarea class="form_textarea form_error" placeholder="placeholder">message</textarea>
+			<textarea class="form_textarea" placeholder="placeholder" disabled>message</textarea>
+			<textarea class="form_textarea" placeholder="placeholder" disabled></textarea>
+		</div>
+		<div style="padding:10px;">
+			<label class="form_checkbox">
+				<input type="checkbox">
+				<span></span>
+				<span>使用する</span>
+			</label>
+			<label class="form_checkbox">
+				<input type="checkbox" checked>
+				<span></span>
+				<span>使用しない</span>
+			</label>
+			<label class="form_checkbox form_error">
+				<input type="checkbox">
+				<span></span>
+				<span>使用する</span>
+			</label>
+			<label class="form_checkbox">
+				<input type="checkbox" disabled>
+				<span></span>
+				<span>使用する</span>
+			</label>
+			<label class="form_checkbox">
+				<input type="checkbox" checked disabled>
+				<span></span>
+				<span>使用しない</span>
+			</label>
+		</div>
+		<div style="padding:10px;">
+			<label class="form_radio">
+				<input type="radio" name="radio1">
+				<span></span>
+				<span>使用する</span>
+			</label>
+			<label class="form_radio">
+				<input type="radio" name="radio1" checked>
+				<span></span>
+				<span>使用しない</span>
+			</label>
+			<label class="form_radio form_error">
+				<input type="radio" name="radio1">
+				<span></span>
+				<span>使用する</span>
+			</label>
+			<label class="form_radio">
+				<input type="radio" name="radio2" disabled>
+				<span></span>
+				<span>使用する</span>
+			</label>
+			<label class="form_radio">
+				<input type="radio" name="radio2" checked disabled>
+				<span></span>
+				<span>使用しない</span>
+			</label>
+		</div>
+		<div style="padding:10px;">
+			<span class="form_select">
+				<select>
+					<option>指定なし</option>
+					<option>オプション1</option>
+					<option>オプション2</option>
+					<option>オプション3</option>
+				</select>
+				<span></span>
+			</span>
+			<span class="form_select form_error">
+				<select>
+					<option>指定なし</option>
+					<option>オプション1</option>
+					<option>オプション2</option>
+					<option>オプション3</option>
+				</select>
+				<span></span>
+			</span>
+			<span class="form_select">
+				<select disabled>
+					<option>指定なし</option>
+					<option>オプション1</option>
+					<option>オプション2</option>
+					<option>オプション3</option>
+				</select>
+				<span></span>
+			</span>
+		</div>
+		<div style="padding:10px;">
+			<button class="form_button">ボタン</button>
+			<button class="form_button form_primary">ボタン</button>
+			<button class="form_button" disabled>ボタン</button>
+			<button class="form_button form_primary" disabled>ボタン</button>
+		</div>
+	</body>
+</html>

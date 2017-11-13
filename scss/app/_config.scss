@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+/**************************************************
+	設定
+**************************************************/
+
+.config_root {
+	position:fixed;
+	z-index:51;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	& > .config_mask {
+		position:absolute;
+		z-index:52;
+		top:0px;
+		bottom:0px;
+		left:0px;
+		right:0px;
+		background:$color_back_mask;
+	}
+	& > .config_home {
+		overflow:hidden;
+		display:flex;
+		flex-direction:column;
+		position:absolute;
+		z-index:53;
+		top:10%;
+		bottom:5%;
+		left:7.5%;
+		right:7.5%;
+		border:solid $size_border_default $color_border_default;
+		& > .config_head {
+			& > .config_head_wrap {
+				@include user_select_none;
+				display:flex;
+				padding-left:1em;
+				& > .config_head_name {
+					overflow:hidden;
+					white-space:nowrap;
+					flex:1;
+					line-height:3em;
+				}
+				& > .config_head_menu {
+					display:flex;
+					margin-right:1.5em;
+					cursor:pointer;
+					&.config_head_back {
+						@include media_screen_sp {
+							order:-1;
+						}
+					}
+					&.none {
+						display:none;
+					}
+					&:hover {
+						opacity:$opacity_hover_default;
+					}
+					& > .config_head_menu_icon {
+						line-height:3em;
+					}
+					& > .config_head_menu_name {
+						padding-left:0.5em;
+						line-height:3em;
+						@include media_screen_sp {
+							display:none;
+						}
+					}
+				}
+			}
+		}
+		& > .config_body {
+			position:relative;
+			flex:1;
+			& > .config_body_list {
+				@include user_select_none;
+				@include scrollbar($size_scrollbar_default, $color_border_default);
+				overflow:auto;
+				position:absolute;
+				z-index:54;
+				top:0px;
+				bottom:0px;
+				left:0px;
+				@include media_screen_pc {
+					width:40%;
+				}
+				@include media_screen_sp {
+					width:100%;
+				}
+				& > .config_body_list_unit {
+					border-bottom:solid $size_border_default $color_border_default;
+					cursor:pointer;
+					&:hover {
+						opacity:$opacity_hover_default;
+					}
+					& > .config_body_list_label {
+						padding:1em 1em 0.25em 1em;
+						font-size:70%;
+					}
+					& > .config_body_list_value {
+						padding:0em 1em 1em 1em;
+					}
+				}
+			}
+			& > .config_body_full {
+				@include scrollbar($size_scrollbar_default, $color_border_default);
+				overflow:auto;
+				position:absolute;
+				z-index:54;
+				padding:1em;
+				top:0px;
+				bottom:0px;
+				@include media_screen_pc {
+					right:0px;
+					width:60%;
+				}
+				@include media_screen_sp {
+					width:100%;
+				}
+				& > div {
+					& > .config_body_full_help {
+						margin-bottom:2em;
+						font-size:60%;
+					}
+				}
+				& > .config_body_full_radio {
+					& > .config_body_full_radio_unit {
+						margin-bottom:0.75em;
+					}
+				}
+				& > .config_body_full_range {
+					& > .config_body_full_range_input {
+						width:100%;
+					}
+				}
+				& > .config_body_full_edition {
+					& > .config_body_full_edition_button {
+						&.none {
+							display:none;
+						}
+					}
+				}
+				& > .config_body_full_what {
+					& > .config_body_full_what_label {
+						font-size:140%;
+					}
+					& > .config_body_full_what_version {
+						font-size:80%;
+					}
+					& > .config_body_full_what_mail {
+						margin:1em 0em;
+						font-size:90%;
+					}
+				}
+			}
+		}
+	}
+}

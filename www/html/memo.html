@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta http-equiv="Content-Language" content="ja" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<meta name="robots" content="index,follow" />
+		<meta name="keywords" content="メモ帳,アプリケーション" />
+		<meta name="description" content="「Qmemo」は快適にメモを管理することを目的として作成されたメモ帳アプリケーションです" />
+		<meta name="application-name" content="Qmemo" />
+		<meta name="author" content="develop0422" />
+		<meta name="creator" content="develop0422" />
+		<meta name="publisher" content="develop0422" />
+		<meta name="copyright" content="Qmemo" />
+		<meta name="generator" content="Eclipse ver4.6.2" />
+        <title>Qmemo</title>
+		<link rel="shortcut icon" href="../img/favicon.png" class="favicon" />
+		<link rel="stylesheet" type="text/css" href="../css/memo.css" />
+		<link rel="stylesheet" type="text/css" href="../css/font-awesome.css" />
+		<script type="text/javascript" charset="UTF-8" src="../cordova.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/lib/jquery.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/lib/moment.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/api/util.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/api/route.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/api/template.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/api/indexdb.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/native/native.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/parts/loading.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/parts/dialog.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/app/config.js" defer></script>
+		<script type="text/javascript" charset="UTF-8" src="../js/app/memo.js" defer></script>
+    </head>
+    <body>
+    	<div class="native_root">
+    		<div class="native_head theme_body"></div>
+    		<div class="native_body appli_root">
+		   		<div class="appli_head theme_head">
+		   			<div class="appli_head_wrap">
+			   			<div class="appli_head_name"></div>
+			   			<div class="appli_head_menu appli_head_config">
+			   				<div class="appli_head_menu_icon fa fa-cog"></div>
+			   				<div class="appli_head_menu_name"></div>
+			   			</div>
+			   			<div class="appli_head_menu appli_head_back">
+			   				<div class="appli_head_menu_icon fa fa-chevron-left"></div>
+			   				<div class="appli_head_menu_name"></div>
+			   			</div>
+			   			<div class="appli_head_menu appli_head_add">
+			   				<div class="appli_head_menu_icon fa fa-plus-circle"></div>
+			   				<div class="appli_head_menu_name"></div>
+			   			</div>
+			   			<div class="appli_head_menu appli_head_edit">
+			   				<div class="appli_head_menu_icon fa fa-pencil-square-o"></div>
+			   				<div class="appli_head_menu_name"></div>
+			   			</div>
+			   			<div class="appli_head_menu appli_head_view">
+			   				<div class="appli_head_menu_icon fa fa-pencil-square"></div>
+			   				<div class="appli_head_menu_name"></div>
+			   			</div>
+			   			<div class="appli_head_menu appli_head_remove">
+			   				<div class="appli_head_menu_icon fa fa-trash"></div>
+			   				<div class="appli_head_menu_name"></div>
+			   			</div>
+			   		</div>
+		   		</div>
+		   		<div class="appli_body theme_body">
+		   			<div class="appli_body_list">
+		   				<div id="appli_body_list_unit" class="template">
+		   					<div class="appli_body_list_name"></div>
+		   					<div class="appli_body_list_time"></div>
+		   				</div>
+		   			</div>
+					<div class="appli_body_view">
+						<div class="appli_body_view_head"></div>
+						<div class="appli_body_view_body"></div>
+					</div>
+					<div class="appli_body_edit">
+						<input class="appli_body_edit_head form_text" type="text" placeholder="タイトル">
+						<textarea class="appli_body_edit_body form_textarea" placeholder="内容"></textarea>
+					</div>
+		   		</div>
+    		</div>
+    	</div>
+    </body>
+</html>

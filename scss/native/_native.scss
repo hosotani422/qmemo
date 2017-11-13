@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/**************************************************
+	ネイティブ
+**************************************************/
+
+.native_root {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	z-index: 11;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	& > .native_head {
+		width: 100%;
+	}
+	& > .native_body {
+		width: 100%;
+		flex: 1;
+	}
+}

@@ -1,0 +1,952 @@
+@charset "UTF-8";
+/**************************************************
+	共通変数
+**************************************************/
+/**************************************************
+	共通部品
+**************************************************/
+/**************************************************
+	標準スタイル
+**************************************************/
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  line-height: 1.5;
+  font-weight: normal;
+  font-size: 16px;
+  background: transparent;
+  border-style: none;
+  outline-style: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: Arial, Helvetica, Meiryo, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: #1188dd;
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+ol, ul, li {
+  list-style-type: none;
+}
+
+/**************************************************
+	テキストボックス
+**************************************************/
+.form_text {
+  padding: 0em 0.5em;
+  line-height: 2em;
+  background: #f0f0f0;
+  border: solid 0.1em #cccccc;
+}
+.form_text::placeholder {
+  color: #aaaaaa;
+}
+.form_text:-ms-input-placeholder {
+  color: #aaaaaa;
+}
+.form_text::-moz-placeholder {
+  color: #aaaaaa;
+}
+.form_text::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+.form_text:focus {
+  border-color: #1188dd;
+}
+.form_text:disabled {
+  opacity: 0.2;
+}
+.form_text::-ms-clear {
+  visibility: hidden;
+}
+.form_text.form_error {
+  background: #ffeeee !important;
+  border-color: #cc0000 !important;
+}
+
+/**************************************************
+	テキストエリア
+**************************************************/
+.form_textarea {
+  overflow: auto;
+  padding: 0.25em 0.5em;
+  height: 5em;
+  background: #f0f0f0;
+  border: solid 0.1em #cccccc;
+  resize: none;
+}
+.form_textarea::placeholder {
+  color: #aaaaaa;
+}
+.form_textarea:-ms-input-placeholder {
+  color: #aaaaaa;
+}
+.form_textarea::-moz-placeholder {
+  color: #aaaaaa;
+}
+.form_textarea::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+.form_textarea:focus {
+  border-color: #1188dd;
+}
+.form_textarea:disabled {
+  opacity: 0.2;
+}
+.form_textarea.form_error {
+  background: #ffeeee !important;
+  border-color: #cc0000 !important;
+}
+
+/**************************************************
+	チェックボックス
+**************************************************/
+.form_checkbox {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  display: inline-block;
+  font-size: 0px;
+}
+.form_checkbox > input {
+  position: absolute;
+  opacity: 0;
+}
+.form_checkbox > input + span {
+  display: inline-block;
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.form_checkbox > input:disabled + span {
+  opacity: 0.2;
+  cursor: auto;
+}
+.form_checkbox > input + span:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  border: solid 0.1em #cccccc;
+}
+.form_checkbox > input:focus + span:before {
+  border-color: #1188dd;
+  box-shadow: 0px 0px 0px 0.1em #f0f0f0 inset;
+}
+.form_checkbox.form_error > input + span:before {
+  background: #ffeeee !important;
+  border-color: #cc0000 !important;
+}
+.form_checkbox > input + span:after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 15%;
+  left: 37%;
+  width: 30%;
+  height: 60%;
+  transform: rotate(45deg);
+}
+.form_checkbox > input:checked + span:after {
+  border-right: solid 0.15em #1188dd;
+  border-bottom: solid 0.15em #1188dd;
+}
+.form_checkbox > input + span + span {
+  display: inline-block;
+  padding: 0em 0.5em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.form_checkbox > input:disabled + span + span {
+  opacity: 0.2;
+  cursor: auto;
+}
+
+/**************************************************
+	ラジオボタン
+**************************************************/
+.form_radio {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  display: inline-block;
+  font-size: 0px;
+}
+.form_radio > input {
+  position: absolute;
+  opacity: 0;
+}
+.form_radio > input + span {
+  display: inline-block;
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.form_radio > input:disabled + span {
+  opacity: 0.2;
+  cursor: auto;
+}
+.form_radio > input + span:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  border: solid 0.1em #cccccc;
+  border-radius: 50%;
+}
+.form_radio > input:focus + span:before {
+  border-color: #1188dd;
+}
+.form_radio.form_error > input + span:before {
+  background: #ffeeee !important;
+  border-color: #cc0000 !important;
+}
+.form_radio > input + span:after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  left: 30%;
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+}
+.form_radio > input:checked + span:after {
+  background: #1188dd;
+}
+.form_radio > input + span + span {
+  display: inline-block;
+  padding: 0em 0.5em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.form_radio > input:disabled + span + span {
+  opacity: 0.2;
+  cursor: auto;
+}
+
+/**************************************************
+	セレクトボックス
+**************************************************/
+.form_select {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  display: inline-block;
+  position: relative;
+}
+.form_select > select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding: 0em 2em 0em 0.5em;
+  line-height: 2em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.form_select > select:disabled {
+  opacity: 0.2;
+  cursor: auto;
+}
+.form_select > select::-ms-expand {
+  display: none;
+}
+.form_select > select::-ms-value {
+  background: transparent;
+  color: #333333;
+}
+.form_select > select + span:before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: #f0f0f0;
+  border: solid 0.1em #cccccc;
+}
+.form_select > select:focus + span:before {
+  border-color: #1188dd;
+}
+.form_select > select:disabled + span:before {
+  opacity: 0.2;
+}
+.form_select.form_error > select + span:before {
+  background: #ffeeee !important;
+  border-color: #cc0000 !important;
+}
+.form_select > select + span:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 38%;
+  right: 0.6em;
+  width: 0.5em;
+  height: 0.5em;
+  border-right: solid 0.15em #cccccc;
+  border-bottom: solid 0.15em #cccccc;
+  transform: rotate(45deg);
+}
+.form_select > select:disabled + span:after {
+  opacity: 0.2;
+}
+
+/**************************************************
+	ボタン
+**************************************************/
+.form_button {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0em 1.5em;
+  line-height: 2em;
+  color: #1188dd;
+  background: #f0f0f0;
+  border: solid 0.1em #cccccc;
+  cursor: pointer;
+}
+.form_button:hover {
+  opacity: 0.8;
+}
+.form_button:focus {
+  border-color: #1188dd;
+  box-shadow: 0px 0px 0px 0.1em #f0f0f0 inset;
+}
+.form_button:disabled {
+  opacity: 0.2;
+  cursor: auto;
+}
+.form_button.form_primary {
+  color: #f0f0f0;
+  background: #1188dd;
+  border-color: #1188dd;
+}
+
+/**************************************************
+	ネイティブ
+**************************************************/
+.native_root {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 11;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+.native_root > .native_head {
+  width: 100%;
+}
+.native_root > .native_body {
+  width: 100%;
+  flex: 1;
+}
+
+/**************************************************
+	ルーティング
+**************************************************/
+#route_hide {
+  display: none;
+}
+
+#route_fade_in {
+  animation-name: routefadein;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes routefadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#route_fade_out {
+  animation-name: routefadeout;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes routefadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+#route_slide_in_left {
+  animation-name: routeslideinleft;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes routeslideinleft {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0px;
+  }
+}
+#route_slide_in_right {
+  animation-name: routeslideinright;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes routeslideinright {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0px;
+  }
+}
+#route_slide_out_left {
+  animation-name: routeslideoutleft;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes routeslideoutleft {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -100%;
+  }
+}
+#route_slide_out_right {
+  animation-name: routeslideoutright;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes routeslideoutright {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 100%;
+  }
+}
+/**************************************************
+	テンプレート
+**************************************************/
+.template {
+  display: none;
+}
+
+/**************************************************
+	ローディング
+**************************************************/
+.loading_root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 70;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.loading_root.hide {
+  display: none;
+}
+.loading_root > .loading_home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20em;
+  height: 5em;
+  background: rgba(0, 0, 0, 0.5);
+  border: solid 1px #ffffff;
+}
+.loading_root > .loading_home > .loading_icon {
+  animation-name: loading;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  color: #ffffff;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading_root > .loading_home > .loading_label {
+  margin-left: 0.5em;
+  color: #ffffff;
+}
+
+/**************************************************
+	ダイアログ
+**************************************************/
+.dialog_root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 70;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.dialog_root > .dialog_home {
+  width: 20em;
+  max-width: 90%;
+  border: solid 0.1em #cccccc;
+}
+.dialog_root > .dialog_home > .dialog_head {
+  padding: 0.75em 1em 0.75em 1em;
+  border-bottom: solid 0.1em #cccccc;
+}
+.dialog_root > .dialog_home > .dialog_body {
+  padding: 1em;
+  font-size: 80%;
+}
+.dialog_root > .dialog_home > .dialog_foot {
+  display: flex;
+}
+.dialog_root > .dialog_home > .dialog_foot > .dialog_ok {
+  flex: 1;
+  font-size: 80%;
+}
+.dialog_root > .dialog_home > .dialog_foot > .dialog_cancel {
+  flex: 1;
+  font-size: 80%;
+}
+
+/**************************************************
+	設定
+**************************************************/
+.config_root {
+  position: fixed;
+  z-index: 51;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+.config_root > .config_mask {
+  position: absolute;
+  z-index: 52;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.config_root > .config_home {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 53;
+  top: 10%;
+  bottom: 5%;
+  left: 7.5%;
+  right: 7.5%;
+  border: solid 0.1em #cccccc;
+}
+.config_root > .config_home > .config_head > .config_head_wrap {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  display: flex;
+  padding-left: 1em;
+}
+.config_root > .config_home > .config_head > .config_head_wrap > .config_head_name {
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+  line-height: 3em;
+}
+.config_root > .config_home > .config_head > .config_head_wrap > .config_head_menu {
+  display: flex;
+  margin-right: 1.5em;
+  cursor: pointer;
+}
+@media screen and (max-width: 599px) {
+  .config_root > .config_home > .config_head > .config_head_wrap > .config_head_menu.config_head_back {
+    order: -1;
+  }
+}
+.config_root > .config_home > .config_head > .config_head_wrap > .config_head_menu.none {
+  display: none;
+}
+.config_root > .config_home > .config_head > .config_head_wrap > .config_head_menu:hover {
+  opacity: 0.8;
+}
+.config_root > .config_home > .config_head > .config_head_wrap > .config_head_menu > .config_head_menu_icon {
+  line-height: 3em;
+}
+.config_root > .config_home > .config_head > .config_head_wrap > .config_head_menu > .config_head_menu_name {
+  padding-left: 0.5em;
+  line-height: 3em;
+}
+@media screen and (max-width: 599px) {
+  .config_root > .config_home > .config_head > .config_head_wrap > .config_head_menu > .config_head_menu_name {
+    display: none;
+  }
+}
+.config_root > .config_home > .config_body {
+  position: relative;
+  flex: 1;
+}
+.config_root > .config_home > .config_body > .config_body_list {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  position: absolute;
+  z-index: 54;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+.config_root > .config_home > .config_body > .config_body_list::-webkit-scrollbar {
+  width: 0.25em;
+}
+.config_root > .config_home > .config_body > .config_body_list::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+@media screen and (min-width: 600px) {
+  .config_root > .config_home > .config_body > .config_body_list {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 599px) {
+  .config_root > .config_home > .config_body > .config_body_list {
+    width: 100%;
+  }
+}
+.config_root > .config_home > .config_body > .config_body_list > .config_body_list_unit {
+  border-bottom: solid 0.1em #cccccc;
+  cursor: pointer;
+}
+.config_root > .config_home > .config_body > .config_body_list > .config_body_list_unit:hover {
+  opacity: 0.8;
+}
+.config_root > .config_home > .config_body > .config_body_list > .config_body_list_unit > .config_body_list_label {
+  padding: 1em 1em 0.25em 1em;
+  font-size: 70%;
+}
+.config_root > .config_home > .config_body > .config_body_list > .config_body_list_unit > .config_body_list_value {
+  padding: 0em 1em 1em 1em;
+}
+.config_root > .config_home > .config_body > .config_body_full {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  position: absolute;
+  z-index: 54;
+  padding: 1em;
+  top: 0px;
+  bottom: 0px;
+}
+.config_root > .config_home > .config_body > .config_body_full::-webkit-scrollbar {
+  width: 0.25em;
+}
+.config_root > .config_home > .config_body > .config_body_full::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+@media screen and (min-width: 600px) {
+  .config_root > .config_home > .config_body > .config_body_full {
+    right: 0px;
+    width: 60%;
+  }
+}
+@media screen and (max-width: 599px) {
+  .config_root > .config_home > .config_body > .config_body_full {
+    width: 100%;
+  }
+}
+.config_root > .config_home > .config_body > .config_body_full > div > .config_body_full_help {
+  margin-bottom: 2em;
+  font-size: 60%;
+}
+.config_root > .config_home > .config_body > .config_body_full > .config_body_full_radio > .config_body_full_radio_unit {
+  margin-bottom: 0.75em;
+}
+.config_root > .config_home > .config_body > .config_body_full > .config_body_full_range > .config_body_full_range_input {
+  width: 100%;
+}
+.config_root > .config_home > .config_body > .config_body_full > .config_body_full_edition > .config_body_full_edition_button.none {
+  display: none;
+}
+.config_root > .config_home > .config_body > .config_body_full > .config_body_full_what > .config_body_full_what_label {
+  font-size: 140%;
+}
+.config_root > .config_home > .config_body > .config_body_full > .config_body_full_what > .config_body_full_what_version {
+  font-size: 80%;
+}
+.config_root > .config_home > .config_body > .config_body_full > .config_body_full_what > .config_body_full_what_mail {
+  margin: 1em 0em;
+  font-size: 90%;
+}
+
+/**************************************************
+	アプリ
+**************************************************/
+.appli_root {
+  display: flex;
+  flex-direction: column;
+}
+.appli_root > .appli_head > .appli_head_wrap {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  display: flex;
+  padding-left: 1em;
+}
+.appli_root > .appli_head > .appli_head_wrap > .appli_head_name {
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+  line-height: 3em;
+}
+.appli_root > .appli_head > .appli_head_wrap > .appli_head_menu {
+  display: flex;
+  margin-right: 1.5em;
+  cursor: pointer;
+}
+@media screen and (max-width: 599px) {
+  .appli_root > .appli_head > .appli_head_wrap > .appli_head_menu.appli_head_config {
+    order: -1;
+  }
+}
+@media screen and (max-width: 599px) {
+  .appli_root > .appli_head > .appli_head_wrap > .appli_head_menu.appli_head_back {
+    order: -1;
+  }
+}
+.appli_root > .appli_head > .appli_head_wrap > .appli_head_menu.none {
+  display: none;
+}
+.appli_root > .appli_head > .appli_head_wrap > .appli_head_menu:hover {
+  opacity: 0.8;
+}
+.appli_root > .appli_head > .appli_head_wrap > .appli_head_menu > .appli_head_menu_icon {
+  line-height: 3em;
+}
+.appli_root > .appli_head > .appli_head_wrap > .appli_head_menu > .appli_head_menu_name {
+  padding-left: 0.5em;
+  line-height: 3em;
+}
+@media screen and (max-width: 599px) {
+  .appli_root > .appli_head > .appli_head_wrap > .appli_head_menu > .appli_head_menu_name {
+    display: none;
+  }
+}
+.appli_root > .appli_body {
+  position: relative;
+  flex: 1;
+}
+.appli_root > .appli_body > .appli_body_list {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  position: absolute;
+  z-index: 31;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+.appli_root > .appli_body > .appli_body_list::-webkit-scrollbar {
+  width: 0.25em;
+}
+.appli_root > .appli_body > .appli_body_list::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+@media screen and (min-width: 600px) {
+  .appli_root > .appli_body > .appli_body_list {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 599px) {
+  .appli_root > .appli_body > .appli_body_list {
+    width: 100%;
+  }
+}
+.appli_root > .appli_body > .appli_body_list > .appli_body_list_unit {
+  border-bottom: solid 0.1em #cccccc;
+  cursor: pointer;
+}
+.appli_root > .appli_body > .appli_body_list > .appli_body_list_unit:hover {
+  opacity: 0.8;
+}
+.appli_root > .appli_body > .appli_body_list > .appli_body_list_unit > .appli_body_list_name {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 1em 1em 0em 1em;
+}
+.appli_root > .appli_body > .appli_body_list > .appli_body_list_unit > .appli_body_list_name:after {
+  content: "　";
+}
+.appli_root > .appli_body > .appli_body_list > .appli_body_list_unit > .appli_body_list_time {
+  padding-right: 1em;
+  text-align: right;
+  font-size: 70%;
+}
+.appli_root > .appli_body > .appli_body_view {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 31;
+  padding: 0.5em;
+  top: 0px;
+  bottom: 0px;
+}
+@media screen and (min-width: 600px) {
+  .appli_root > .appli_body > .appli_body_view {
+    right: 0px;
+    width: 60%;
+  }
+}
+@media screen and (max-width: 599px) {
+  .appli_root > .appli_body > .appli_body_view {
+    left: 0px;
+    width: 100%;
+  }
+}
+.appli_root > .appli_body > .appli_body_view > .appli_body_view_head {
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 0.5em;
+  padding: 0em 0.5em;
+  line-height: 2em;
+  border: solid 0.1em #cccccc;
+}
+.appli_root > .appli_body > .appli_body_view > .appli_body_view_head.none {
+  display: none;
+}
+.appli_root > .appli_body > .appli_body_view > .appli_body_view_head:after {
+  content: "　";
+}
+.appli_root > .appli_body > .appli_body_view > .appli_body_view_head > * {
+  display: inline;
+}
+.appli_root > .appli_body > .appli_body_view > .appli_body_view_body {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  padding: 0.25em 0.5em;
+  flex: 1;
+  border: solid 0.1em #cccccc;
+}
+.appli_root > .appli_body > .appli_body_view > .appli_body_view_body::-webkit-scrollbar {
+  width: 0.25em;
+}
+.appli_root > .appli_body > .appli_body_view > .appli_body_view_body::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+.appli_root > .appli_body > .appli_body_view > .appli_body_view_body > * {
+  display: inline;
+}
+.appli_root > .appli_body > .appli_body_edit {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 31;
+  padding: 0.5em;
+  top: 0px;
+  bottom: 0px;
+}
+@media screen and (min-width: 600px) {
+  .appli_root > .appli_body > .appli_body_edit {
+    right: 0px;
+    width: 60%;
+  }
+}
+@media screen and (max-width: 599px) {
+  .appli_root > .appli_body > .appli_body_edit {
+    left: 0px;
+    width: 100%;
+  }
+}
+.appli_root > .appli_body > .appli_body_edit > .appli_body_edit_head {
+  margin-bottom: 0.5em;
+}
+.appli_root > .appli_body > .appli_body_edit > .appli_body_edit_head.none {
+  display: none;
+}
+.appli_root > .appli_body > .appli_body_edit > .appli_body_edit_body {
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+}
+.appli_root > .appli_body > .appli_body_edit > .appli_body_edit_body::-webkit-scrollbar {
+  width: 0.25em;
+}
+.appli_root > .appli_body > .appli_body_edit > .appli_body_edit_body::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+
+/*# sourceMappingURL=memo.css.map */

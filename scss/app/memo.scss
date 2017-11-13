@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+@import "../base/_base.scss";
+@import "../base/_form.scss";
+@import "../native/_native.scss";
+@import "../api/_route.scss";
+@import "../api/_template.scss";
+@import "../parts/_loading.scss";
+@import "../parts/_dialog.scss";
+@import "../app/_config.scss";
+
+/**************************************************
+	アプリ
+**************************************************/
+
+.appli_root {
+	display:flex;
+	flex-direction:column;
+	& > .appli_head {
+		& > .appli_head_wrap {
+			@include user_select_none;
+			display:flex;
+			padding-left:1em;
+			& > .appli_head_name {
+				overflow:hidden;
+				white-space:nowrap;
+				flex:1;
+				line-height:3em;
+			}
+			& > .appli_head_menu {
+				display:flex;
+				margin-right:1.5em;
+				cursor:pointer;
+				&.appli_head_config {
+					@include media_screen_sp {
+						order:-1;
+					}
+				}
+				&.appli_head_back {
+					@include media_screen_sp {
+						order:-1;
+					}
+				}
+				&.none {
+					display:none;
+				}
+				&:hover {
+					opacity:$opacity_hover_default;
+				}
+				& > .appli_head_menu_icon {
+					line-height:3em;
+				}
+				& > .appli_head_menu_name {
+					padding-left:0.5em;
+					line-height:3em;
+					@include media_screen_sp {
+						display:none;
+					}
+				}
+			}
+		}
+	}
+	& > .appli_body {
+		position:relative;
+		flex:1;
+		& > .appli_body_list {
+			@include user_select_none;
+			@include scrollbar($size_scrollbar_default, $color_border_default);
+			overflow:auto;
+			position:absolute;
+			z-index:31;
+			top:0px;
+			bottom:0px;
+			left:0px;
+			@include media_screen_pc {
+				width:40%;
+			}
+			@include media_screen_sp {
+				width:100%;
+			}
+			& > .appli_body_list_unit {
+				border-bottom:solid $size_border_default $color_border_default;
+				cursor:pointer;
+				&:hover {
+					opacity:$opacity_hover_default;
+				}
+				& > .appli_body_list_name {
+					overflow:hidden;
+					white-space:nowrap;
+					padding:1em 1em 0em 1em;
+					&:after {
+						content:"　";
+					}
+				}
+				& > .appli_body_list_time {
+					padding-right:1em;
+					text-align:right;
+					font-size:70%;
+				}
+			}
+		}
+		& > .appli_body_view {
+			display:flex;
+			flex-direction:column;
+			position:absolute;
+			z-index:31;
+			padding:0.5em;
+			top:0px;
+			bottom:0px;
+			@include media_screen_pc {
+				right:0px;
+				width:60%;
+			}
+			@include media_screen_sp {
+				left:0px;
+				width:100%;
+			}
+			& > .appli_body_view_head {
+				overflow:hidden;
+				white-space:nowrap;
+				margin-bottom:0.5em;
+				padding:0em 0.5em;
+				line-height:2em;
+				border:solid $size_border_default $color_border_default;
+				&.none {
+					display:none;
+				}
+				&:after {
+					content:"　";
+				}
+				& > * {
+					display:inline;
+				}
+			}
+			& > .appli_body_view_body {
+				@include scrollbar($size_scrollbar_default, $color_border_default);
+				overflow:auto;
+				padding:0.25em 0.5em;
+				flex:1;
+				border:solid $size_border_default $color_border_default;
+				& > * {
+					display:inline;
+				}
+			}
+		}	
+		& > .appli_body_edit {
+			display:flex;
+			flex-direction:column;
+			position:absolute;
+			z-index:31;
+			padding:0.5em;
+			top:0px;
+			bottom:0px;
+			@include media_screen_pc {
+				right:0px;
+				width:60%;
+			}
+			@include media_screen_sp {
+				left:0px;
+				width:100%;
+			}
+			& > .appli_body_edit_head {
+				margin-bottom:0.5em;
+				&.none {
+					display:none;
+				}
+			}
+			& > .appli_body_edit_body {
+				@include scrollbar($size_scrollbar_default, $color_border_default);
+				flex:1;
+			}
+		}
+	}
+}
