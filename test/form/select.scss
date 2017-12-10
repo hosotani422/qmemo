@@ -1,0 +1,65 @@
+
+.form-select {
+  @include user_select_none;
+  display:inline-block;
+  position:relative;
+  & > select {
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    padding:0em $size_padding_default * 4 0em $size_padding_default;
+    line-height:$size_height_default;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    &:disabled {
+      opacity:$opacity_disable_default;
+      cursor:auto;
+    }
+    &::-ms-expand {// IE対応(▼削除)
+      display:none;
+    }
+    &::-ms-value {// IE対応(項目選択時のスタイル指定)
+      background:transparent;
+      color:$color_font_default;
+    }
+  }
+  & > select + span {
+    &:before {
+      content:"";
+      position:absolute;
+      z-index:-2;
+      top:0px;
+      bottom:0px;
+      left:0px;
+      right:0px;
+      background:$color_back_default;
+      border:solid $size_border_default $color_border_default;
+      @at-root .form-select > select:focus + span:before {
+        border-color:$color_active_default;
+      }
+      @at-root .form-select > select:disabled + span:before {
+        opacity:$opacity_disable_default;
+      }
+      @at-root .form-select.error > select + span:before {
+        background:$color_back_error !important;
+        border-color:$color_border_error !important;
+      }
+    }
+    &:after {
+      content:"";
+      position:absolute;
+      z-index:-1;
+      top:38%;
+      right:0.6em;
+      width:0.5em;
+      height:0.5em;
+      border-right:solid 0.15em $color_border_default;
+      border-bottom:solid 0.15em $color_border_default;
+      transform:rotate(45deg);
+      @at-root .form-select > select:disabled + span:after {
+        opacity:$opacity_disable_default;
+      }
+    }
+  }
+}

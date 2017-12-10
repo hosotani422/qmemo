@@ -1,0 +1,52 @@
+
+@mixin media_screen_pc {
+  @media screen and (min-width:600px) {
+    @content;
+  }
+}
+@mixin media_screen_sp {
+  @media screen and (max-width:599px) {
+    @content;
+  }
+}
+@mixin user_select_none {
+  user-select:none;
+  -ms-user-select:none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+}
+@mixin place_holder($color) {
+  &::placeholder {
+    color:$color;
+  }
+  &:-ms-input-placeholder {
+    color:$color;
+  }
+  &::-moz-placeholder {
+    color:$color;
+  }
+  &::-webkit-input-placeholder {
+    color:$color;
+  }
+}
+@mixin scrollbar($width, $color) {
+  &::-webkit-scrollbar {
+    width:$width;
+  }
+  &::-webkit-scrollbar-thumb {
+    background:$color;
+  }
+  -webkit-overflow-scrolling:touch;
+}
+@mixin animation($name, $timing, $delay, $count, $direction, $mode) {
+  animation-name:$name;
+  animation-timing-function:$timing;
+  animation-delay:$delay;
+  animation-iteration-count:$count;
+  animation-direction:$direction;
+  animation-fill-mode:$mode;
+  @keyframes #{$name} {
+    @content;
+  }
+}

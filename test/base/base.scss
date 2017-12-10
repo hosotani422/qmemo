@@ -1,0 +1,29 @@
+
+*, *:before, *:after {
+  box-sizing:border-box;
+  margin:0px;
+  padding:0px;
+  line-height:1.5;
+  font-weight:normal;
+  font-size:16px;
+  background:transparent;
+  border-style:none;
+  outline-style:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);// ハイライトカラー無効化(Android、iOS)
+}
+body {
+  color:$color_font_default;
+  font-family:Arial, Helvetica, Meiryo, sans-serif;
+  -webkit-text-size-adjust:100%;// 文字サイズ自動調整無効化
+}
+a {
+  color:$color_active_default;
+  text-decoration:none;
+  &:hover {
+    opacity:$opacity_hover_default;
+    text-decoration:underline;
+  }
+}
+ol, ul, li {
+  list-style-type:none;
+}

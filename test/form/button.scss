@@ -1,0 +1,26 @@
+
+.form-button {
+  @include user_select_none;
+  padding:0em $size_padding_default * 3;
+  line-height:$size_height_default;
+  color:$color_active_default;
+  background:$color_back_default;
+  border:solid $size_border_default $color_border_default;
+  cursor:pointer;
+  &:hover {
+    opacity:$opacity_hover_default;
+  }
+  &:focus {
+    border-color:$color_active_default;
+    box-shadow:0px 0px 0px $size_border_default $color_back_default inset;
+  }
+  &:disabled {
+    opacity:$opacity_disable_default;
+    cursor:auto;
+  }
+  &.primary {
+    color:$color_back_default;
+    background:$color_active_default;
+    border-color:$color_active_default;
+  }
+}

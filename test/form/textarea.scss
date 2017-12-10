@@ -1,0 +1,20 @@
+
+.form-textarea {
+  overflow:auto;// IE対応(スクロールバー非表示)
+  padding:$size_padding_default;
+  height:5em;
+  background:$color_back_default;
+  border:solid $size_border_default $color_border_default;
+  resize:none;// Chorome対応(サイズ変更無効化)
+  @include place_holder($color_back_pholder);
+  &:focus {
+    border-color:$color_active_default;
+  }
+  &:disabled {
+    opacity:$opacity_disable_default;
+  }
+  &.error {
+    background:$color_back_error !important;
+    border-color:$color_border_error !important;
+  }
+}
